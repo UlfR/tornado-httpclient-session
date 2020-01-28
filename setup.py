@@ -21,7 +21,7 @@ setup(name='tornado-httpclient-session',
       classifiers=[
           'Programming Language :: Python :: 2',
           'Programming Language :: Python :: 3',
-      ],      
+      ],
       install_requires=[
-          'tornado'
+          'tornado>=6.0.0'
       ])

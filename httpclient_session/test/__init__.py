@@ -5,7 +5,7 @@ from tornado.ioloop import IOLoop
 from httpclient_session import Session
 
 
-session = Session(io_loop=IOLoop.current())
+session = Session()
 
 
 class AsyncHTTPTestCase(tornado.testing.AsyncHTTPTestCase):
