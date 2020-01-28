@@ -36,10 +36,8 @@ class Session(object):
         request = self.prepare_request(request)
         callback = self.prepare_callback(callback)
 
-        result = self._httpclient.fetch(request,
-                                        callback=callback,
-                                        raise_error=raise_error,
-                                        **kwargs)
+        result = self._httpclient.fetch(request, raise_error=raise_error)
+        result.add_done_callback(callback)
 
         return result
 
@@ -51,7 +49,8 @@ class Session(object):
 
     def prepare_callback(self, callback=None):
 
-        def wrapper(response):
+        def wrapper(future):
+            response = future.result()
             extract_cookies_to_jar(self.cookies, response.request, response)
 
             if callback:
