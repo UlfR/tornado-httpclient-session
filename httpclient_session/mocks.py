@@ -3,7 +3,7 @@ try:
 except ImportError:
     from urllib.parse import urlparse, urlunparse
 
-from tornado.httputil import _normalized_headers
+#from tornado.httputil import _normalized_headers
 
 
 class MockRequest(object):
